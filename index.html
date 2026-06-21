@@ -56,10 +56,8 @@
     letter-spacing:.03em;
   }
   .lang-btn.active{background:#fff;color:var(--dark);}
-
   .page{display:none;}
   .page.active{display:block;}
-
   .grid{
     display:grid;grid-template-columns:repeat(3,1fr);
     background:var(--card);margin:18px;border:1px solid #e4e2dc;
@@ -75,7 +73,6 @@
   .tile:hover{background:#f7f6f2;}
   .tile .emoji{font-size:30px;}
   .tile .label{font-size:15px;font-weight:500;}
-
   .content{background:var(--card);margin:18px;border:1px solid #e4e2dc;padding:26px 22px 34px;}
   .content h2{margin:0 0 18px;font-size:21px;border-bottom:2px solid var(--dark);display:inline-block;padding-bottom:6px;}
   .content h3{font-size:16px;margin:22px 0 6px;}
@@ -88,10 +85,8 @@
   .pill-row{margin:0 0 14px;display:flex;flex-wrap:wrap;gap:8px;}
   .pill{background:#eef0e4;border-radius:20px;padding:4px 12px;font-size:13px;color:var(--muted);}
   .home-link{display:inline-block;margin-top:6px;color:var(--link);cursor:pointer;text-decoration:underline;}
-
   .lang-block{display:none;}
   .lang-block.active-lang{display:block;}
-
   .subcard{border:1px solid #e4e2dc;margin-bottom:14px;}
   .subcard summary{
     list-style:none;cursor:pointer;padding:16px 18px;font-weight:700;
@@ -101,10 +96,8 @@
   .subcard .inner{padding:16px 18px;}
   .chevron{transition:transform .15s ease;}
   .subcard[open] .chevron{transform:rotate(180deg);}
-
   .map-box{background:var(--card);margin:18px;border:1px solid #e4e2dc;padding:26px 22px;text-align:center;}
   .map-btn{display:inline-block;margin-top:14px;background:var(--dark);color:#fff;padding:12px 22px;text-decoration:none;font-weight:600;}
-
   .search-box{margin:18px;}
   .search-input{width:100%;padding:14px 16px;font-size:16px;border:1px solid #c9c7c0;background:#fff;}
   .search-results{margin-top:14px;background:#fff;border:1px solid #e4e2dc;}
@@ -115,7 +108,6 @@
   .search-results button:hover{background:#f7f6f2;}
   .search-results .snippet{display:block;color:var(--muted);font-size:13px;margin-top:3px;}
   .search-empty{padding:16px;color:var(--muted);}
-
   nav.bottomnav{position:fixed;bottom:0;left:0;right:0;display:flex;background:var(--nav);z-index:20;}
   nav.bottomnav button{
     flex:1;border:none;background:none;padding:12px 4px 14px;display:flex;
@@ -124,7 +116,6 @@
   }
   nav.bottomnav button.active{background:var(--nav-active);}
   nav.bottomnav .nav-icon{font-size:18px;}
-
   #editToggle{cursor:pointer;border-radius:50%;padding:4px 7px;transition:background .15s ease;}
   body.edit-mode #editToggle{background:#fff;color:var(--dark);}
   .edit-mode .fill{background:#eaf3fa;border:2px solid var(--link);cursor:text;outline:none;}
@@ -135,8 +126,6 @@
     font-size:13px;opacity:0;transform:translateY(8px);transition:opacity .2s ease, transform .2s ease;z-index:30;
   }
   .toast.show{opacity:1;transform:translateY(0);}
-
-  /* ---------- Share modal ---------- */
   .share-overlay{
     position:fixed;inset:0;background:rgba(0,0,0,.45);
     display:none;align-items:flex-end;justify-content:center;z-index:50;
@@ -145,10 +134,6 @@
   .share-modal{
     background:#fff;width:100%;max-width:420px;border-radius:16px 16px 0 0;
     padding:22px 20px 28px;box-shadow:0 -4px 24px rgba(0,0,0,.25);
-  }
-  @media (min-width:560px){
-    .share-overlay{align-items:center;}
-    .share-modal{border-radius:16px;}
   }
   .share-header{
     display:flex;justify-content:space-between;align-items:center;
@@ -166,7 +151,6 @@
 </style>
 </head>
 <body data-lang="sv">
-
 <header class="topbar">
   <div class="topbar-left">
     <button class="back-btn" onclick="goHome()">←</button>
@@ -186,7 +170,6 @@
   </div>
 </header>
 <div class="edit-banner" id="editBanner" data-key-ui="editBanner"></div>
-
 <div class="share-overlay" id="shareOverlay" onclick="if(event.target===this) closeShareModal()">
   <div class="share-modal">
     <div class="share-header">
@@ -199,8 +182,6 @@
     <button class="share-option" onclick="shareViaWhatsapp()"><span class="share-icon">📱</span><span data-key-ui="shareWhatsapp"></span></button>
   </div>
 </div>
-
-<!-- ============ HOME / INFO GRID ============ -->
 <main class="page active" id="home">
   <div class="grid">
     <button class="tile" onclick="showPage('welcome')"><span class="emoji">👋</span><span class="label" data-key-ui="tile_welcome"></span></button>
@@ -215,10 +196,7 @@
     <button class="tile" onclick="showPage('farewell')"><span class="emoji">👋</span><span class="label" data-key-ui="tile_farewell"></span></button>
   </div>
 </main>
-
-<!-- ============ WELCOME ============ -->
 <main class="page" id="page-welcome">
-
   <div class="content lang-block lang-sv active-lang">
     <h2>Välkommen</h2>
     <p>Hej och varmt välkommen till <strong>Västkust-villan</strong> i Lanesund, Uddevalla! Vi hoppas du ska få njuta av havsutsikten, poolen och den lugna, eleganta känslan i huset.</p>
@@ -235,480 +213,252 @@
     <p>Spara gärna den här sidan på din hemskärm så har du allt nära till hands, även utan uppkoppling.</p>
     <p>Skön resa och varmt välkommen till västkusten!</p>
   </div>
-
   <div class="content lang-block lang-en">
     <h2>Welcome</h2>
-    <p>Hello and a warm welcome to the <strong>West Coast Villa</strong> in Lanesund, Uddevalla! We hope you enjoy the sea view, the pool, and the calm, elegant feel of the house.</p>
-    <p>My name is Martin and I am your host. This digital guide works as a companion to me — everything you need to know about your stay is gathered here:</p>
+    <p>Hello and a warm welcome to the <strong>West Coast Villa</strong> in Lanesund, Uddevalla!</p>
     <ul>
       <li>🔑 <span class="home-link" onclick="showPage('arrival')">Arrival information</span></li>
       <li>📶 <span class="home-link" onclick="showPage('wifi')">WiFi details</span></li>
-      <li>🏠 <span class="home-link" onclick="showPage('about')">About the accommodation and what is here</span></li>
-      <li>❤️ <span class="home-link" onclick="showPage('enhance')">Add the pool house – sauna, extra sleeping space</span></li>
-      <li>📍 <span class="home-link" onclick="showPage('area')">Beaches, restaurants and day trips nearby</span></li>
+      <li>🏠 <span class="home-link" onclick="showPage('about')">About the accommodation</span></li>
+      <li>❤️ <span class="home-link" onclick="showPage('enhance')">Add the pool house</span></li>
+      <li>📍 <span class="home-link" onclick="showPage('area')">Beaches, restaurants and day trips</span></li>
       <li>📖 <span class="home-link" onclick="showPage('rules')">Safety and house rules</span></li>
     </ul>
     <p>Need anything during your stay? Send a message through Airbnb and I will reply as soon as I can.</p>
-    <p>Feel free to save this page to your home screen so everything is close at hand, even offline.</p>
-    <p>Have a great trip and a warm welcome to the west coast!</p>
   </div>
-
   <div class="content lang-block lang-de">
     <h2>Willkommen</h2>
-    <p>Hallo und herzlich willkommen in der <strong>Westküsten-Villa</strong> in Lanesund, Uddevalla! Wir hoffen, du genießt den Meerblick, den Pool und die ruhige, stilvolle Atmosphäre des Hauses.</p>
-    <p>Ich heiße Martin und bin dein Gastgeber. Dieser digitale Guide ist eine Ergänzung zu mir — alles, was du für deinen Aufenthalt wissen musst, findest du hier:</p>
+    <p>Hallo und herzlich willkommen in der <strong>Westküsten-Villa</strong> in Lanesund, Uddevalla!</p>
     <ul>
       <li>🔑 <span class="home-link" onclick="showPage('arrival')">Ankunftsinformationen</span></li>
       <li>📶 <span class="home-link" onclick="showPage('wifi')">WLAN-Daten</span></li>
-      <li>🏠 <span class="home-link" onclick="showPage('about')">Infos zur Unterkunft und Ausstattung</span></li>
-      <li>❤️ <span class="home-link" onclick="showPage('enhance')">Poolhaus dazubuchen – Sauna, zusätzlicher Schlafplatz</span></li>
-      <li>📍 <span class="home-link" onclick="showPage('area')">Strände, Restaurants und Ausflüge in der Nähe</span></li>
+      <li>🏠 <span class="home-link" onclick="showPage('about')">Infos zur Unterkunft</span></li>
+      <li>❤️ <span class="home-link" onclick="showPage('enhance')">Poolhaus dazubuchen</span></li>
+      <li>📍 <span class="home-link" onclick="showPage('area')">Strände und Ausflüge</span></li>
       <li>📖 <span class="home-link" onclick="showPage('rules')">Sicherheit und Hausregeln</span></li>
     </ul>
-    <p>Brauchst du während deines Aufenthalts etwas? Schick mir einfach eine Nachricht über Airbnb, ich antworte so schnell wie möglich.</p>
-    <p>Speichere diese Seite gerne auf deinem Homescreen, damit du alles griffbereit hast – auch offline.</p>
-    <p>Gute Reise und herzlich willkommen an der Westküste!</p>
+    <p>Brauchst du während deines Aufenthalts etwas? Schick mir einfach eine Nachricht über Airbnb.</p>
   </div>
-
 </main>
-
-<!-- ============ ENHANCE YOUR STAY ============ -->
+<main class="page" id="page-arrival">
+  <div class="content lang-block lang-sv active-lang">
+    <h2>🔑 Ankomstinformation</h2>
+    <p>Incheckning: <strong>16:00–22:00</strong><br>Utcheckning: före <strong>10:00</strong></p>
+    <h3>Adress</h3>
+    <p>📍 <span class="fill" data-key="address">[Fyll i exakt adress]</span></p>
+    <h3>Nyckelskåp</h3>
+    <p>Nyckelskåpet hittar du <span class="fill" data-key="lockbox-location">[beskriv placering]</span>.</p>
+    <p>Kod: <span class="fill" data-key="lockbox-code">[ANGE KOD]</span></p>
+    <h3>Behöver du hjälp?</h3>
+    <p>Ring <span class="fill" data-key="phone">[TELEFONNUMMER]</span>.</p>
+  </div>
+  <div class="content lang-block lang-en">
+    <h2>🔑 Arrival Information</h2>
+    <p>Check-in: <strong>16:00–22:00</strong><br>Check-out: before <strong>10:00</strong></p>
+    <h3>Address</h3>
+    <p>📍 <span class="fill" data-key="address">[Enter address]</span></p>
+    <h3>Key box</h3>
+    <p>Key box location: <span class="fill" data-key="lockbox-location">[describe location]</span>.</p>
+    <p>Code: <span class="fill" data-key="lockbox-code">[ENTER CODE]</span></p>
+    <h3>Need help?</h3>
+    <p>Call <span class="fill" data-key="phone">[PHONE NUMBER]</span>.</p>
+  </div>
+  <div class="content lang-block lang-de">
+    <h2>🔑 Ankunftsinformationen</h2>
+    <p>Check-in: <strong>16:00–22:00 Uhr</strong><br>Check-out: vor <strong>10:00 Uhr</strong></p>
+    <h3>Adresse</h3>
+    <p>📍 <span class="fill" data-key="address">[Adresse eingeben]</span></p>
+    <h3>Schlüsselbox</h3>
+    <p>Schlüsselbox: <span class="fill" data-key="lockbox-location">[Position beschreiben]</span>.</p>
+    <p>Code: <span class="fill" data-key="lockbox-code">[CODE EINGEBEN]</span></p>
+    <h3>Brauchst du Hilfe?</h3>
+    <p>Ruf an: <span class="fill" data-key="phone">[TELEFONNUMMER]</span>.</p>
+  </div>
+</main>
+<main class="page" id="page-wifi">
+  <div class="content lang-block lang-sv active-lang">
+    <h2>📶 WiFi / Internet</h2>
+    <ul>
+      <li><strong>Nätverk:</strong> <span class="fill" data-key="wifi-ssid">[NÄTVERKSNAMN]</span></li>
+      <li><strong>Lösenord:</strong> <span class="fill" data-key="wifi-pass">[LÖSENORD]</span></li>
+    </ul>
+    <h3>Underhållning</h3>
+    <p>75 tums TV samt Sonos multiroom-ljud. Logga ut från streamingkonton innan utcheckning.</p>
+  </div>
+  <div class="content lang-block lang-en">
+    <h2>📶 WiFi / Internet</h2>
+    <ul>
+      <li><strong>Network:</strong> <span class="fill" data-key="wifi-ssid">[NETWORK NAME]</span></li>
+      <li><strong>Password:</strong> <span class="fill" data-key="wifi-pass">[PASSWORD]</span></li>
+    </ul>
+    <h3>Entertainment</h3>
+    <p>75-inch TV and Sonos multiroom sound. Sign out of streaming accounts before check-out.</p>
+  </div>
+  <div class="content lang-block lang-de">
+    <h2>📶 WLAN / Internet</h2>
+    <ul>
+      <li><strong>Netzwerk:</strong> <span class="fill" data-key="wifi-ssid">[NETZWERKNAME]</span></li>
+      <li><strong>Passwort:</strong> <span class="fill" data-key="wifi-pass">[PASSWORT]</span></li>
+    </ul>
+    <h3>Unterhaltung</h3>
+    <p>75-Zoll-Fernseher und Sonos-Sound. Vor dem Check-out von Streaming-Konten abmelden.</p>
+  </div>
+</main>
 <main class="page" id="page-enhance">
-
   <div class="content lang-block lang-sv active-lang">
     <h2>🏖️ Hyr till Poolhuset</h2>
-    <p>Bokar ni för 6–7 personer går det att hyra till det separata <strong>Poolhuset</strong> (Åsholmsvägen 6, Lanesund) för endast <strong>1500 kr/natt</strong>.</p>
-    <h3>Poolhuset innehåller</h3>
+    <p>För 6–7 personer: hyr <strong>Poolhuset</strong> för <strong>1500 kr/natt</strong>.</p>
     <ul>
-      <li>Bekväm bäddsoffa i queensize (140 cm) med havsutsikt</li>
-      <li>Eget pentry med kylskåp, frysfack och diskho</li>
-      <li>Egen bastu</li>
-      <li>Fullt utrustat badrum med toalett, handfat och dusch</li>
-      <li>Eget matbord på den nedre poolaltanen</li>
+      <li>Queensize bäddsoffa (140 cm) med havsutsikt</li>
+      <li>Eget pentry, bastu och badrum</li>
+      <li>Eget matbord på poolaltanen</li>
     </ul>
-    <p>Tekniskt bokas vistelsen för 6 gäster i systemet (den 7:e gästen betalar inget extra) — men skriv gärna namnen på alla gäster i meddelandet till oss.</p>
-    <p>Intresserad? Se den separata annonsen <em>"Poolhus Åsholmsvägen 6, Lanesund, Uddevalla"</em> på Airbnb, eller skicka ett meddelande så ordnar vi det.</p>
+    <p>Se annonsen <em>"Poolhus Åsholmsvägen 6, Lanesund, Uddevalla"</em> på Airbnb.</p>
   </div>
-
   <div class="content lang-block lang-en">
     <h2>🏖️ Add the Pool House</h2>
-    <p>Booking for 6–7 guests? You can add the separate <strong>Pool House</strong> (Åsholmsvägen 6, Lanesund) for only <strong>1500 SEK/night</strong>.</p>
-    <h3>The Pool House includes</h3>
+    <p>For 6–7 guests: add the <strong>Pool House</strong> for <strong>1500 SEK/night</strong>.</p>
     <ul>
-      <li>A comfortable queen-size (140 cm) sofa bed with sea view</li>
-      <li>Its own kitchenette with fridge, freezer compartment and sink</li>
-      <li>A private sauna</li>
-      <li>A fully equipped bathroom with toilet, sink and shower</li>
-      <li>Its own dining table on the lower pool terrace</li>
+      <li>Queen-size sofa bed (140 cm) with sea view</li>
+      <li>Own kitchenette, sauna and bathroom</li>
+      <li>Own dining table on the pool terrace</li>
     </ul>
-    <p>Technically the booking is made for 6 guests in the system (the 7th guest is free) — but please write the names of all guests in your message to us.</p>
-    <p>Interested? See the separate listing <em>"Poolhus Åsholmsvägen 6, Lanesund, Uddevalla"</em> on Airbnb, or send a message and we will arrange it.</p>
+    <p>See listing <em>"Poolhus Åsholmsvägen 6, Lanesund, Uddevalla"</em> on Airbnb.</p>
   </div>
-
   <div class="content lang-block lang-de">
     <h2>🏖️ Poolhaus dazubuchen</h2>
-    <p>Buchst du für 6–7 Gäste? Dann kannst du das separate <strong>Poolhaus</strong> (Åsholmsvägen 6, Lanesund) für nur <strong>1500 SEK/Nacht</strong> dazu buchen.</p>
-    <h3>Das Poolhaus bietet</h3>
+    <p>Für 6–7 Gäste: <strong>Poolhaus</strong> für <strong>1500 SEK/Nacht</strong> dazubuchen.</p>
     <ul>
-      <li>Eine bequeme Queensize-Schlafcouch (140 cm) mit Meerblick</li>
-      <li>Eine eigene Küchenzeile mit Kühlschrank, Gefrierfach und Spüle</li>
-      <li>Eine eigene Sauna</li>
-      <li>Ein voll ausgestattetes Bad mit Toilette, Waschbecken und Dusche</li>
-      <li>Einen eigenen Esstisch auf der unteren Poolterrasse</li>
+      <li>Queensize-Schlafcouch (140 cm) mit Meerblick</li>
+      <li>Eigene Küchenzeile, Sauna und Bad</li>
+      <li>Eigener Esstisch auf der Poolterrasse</li>
     </ul>
-    <p>Technisch wird die Buchung im System für 6 Gäste vorgenommen (der 7. Gast ist kostenlos) — bitte schreib uns trotzdem die Namen aller Gäste in einer Nachricht.</p>
-    <p>Interessiert? Schau dir das separate Angebot <em>"Poolhus Åsholmsvägen 6, Lanesund, Uddevalla"</em> auf Airbnb an, oder schreib uns einfach eine Nachricht.</p>
+    <p>Angebot <em>"Poolhus Åsholmsvägen 6, Lanesund, Uddevalla"</em> auf Airbnb.</p>
   </div>
-
 </main>
-
-<!-- ============ LOCAL AREA ============ -->
 <main class="page" id="page-area">
-
   <div class="content lang-block lang-sv active-lang">
     <h2>📍 Området &amp; Aktiviteter</h2>
     <h3>🏊 Gångavstånd (ca 10 min)</h3>
-    <ul>
-      <li>Badplats med hopptorn</li>
-      <li>Strövområden i både skog och mark runt knuten</li>
-    </ul>
-    <h3>🚗 Ca 10 minuters bilfärd</h3>
-    <ul>
-      <li>Flera restauranger, pizzerior och hamburgerrestauranger</li>
-      <li>TORP Köpcenter – de flesta stora kedjorna</li>
-      <li>Drygt 10 snabbladdningsstationer för elbil</li>
-    </ul>
+    <ul><li>Badplats med hopptorn</li><li>Strövområden i skog och mark</li></ul>
+    <h3>🚗 Ca 10 min bilfärd</h3>
+    <ul><li>Restauranger, pizzerior och hamburgerrestauranger</li><li>TORP Köpcenter</li><li>Snabbladdning för elbil</li></ul>
     <h3>🚗 Inom en halvtimme</h3>
-    <ul>
-      <li>Fina fiskerestauranger, caféer och lanthandel</li>
-      <li>Hamnar och Uddevalla centrum</li>
-      <li>Fiskebäckskil</li>
-      <li>Färjan till Lysekil</li>
-    </ul>
+    <ul><li>Fiskerestauranger och caféer</li><li>Uddevalla centrum</li><li>Fiskebäckskil</li><li>Färjan till Lysekil</li></ul>
     <h3>🚗 Inom en timme</h3>
-    <ul>
-      <li>Lysekil</li><li>Smögen</li><li>Hunnebostrand</li><li>Kungshamn</li>
-    </ul>
+    <ul><li>Lysekil</li><li>Smögen</li><li>Hunnebostrand</li><li>Kungshamn</li></ul>
   </div>
-
   <div class="content lang-block lang-en">
     <h2>📍 Local Area &amp; Activities</h2>
-    <h3>🏊 Walking distance (about 10 min)</h3>
-    <ul>
-      <li>Beach with diving tower</li>
-      <li>Forest and nature trails right around the corner</li>
-    </ul>
-    <h3>🚗 About a 10-minute drive</h3>
-    <ul>
-      <li>Several restaurants, pizzerias and burger places</li>
-      <li>TORP Shopping Centre – most major chains</li>
-      <li>Over 10 fast-charging stations for your EV</li>
-    </ul>
-    <h3>🚗 Within half an hour</h3>
-    <ul>
-      <li>Lovely seafood restaurants, cafés and local shops</li>
-      <li>Harbours and Uddevalla town centre</li>
-      <li>Fiskebäckskil</li>
-      <li>The ferry to Lysekil</li>
-    </ul>
+    <h3>🏊 Walking distance (10 min)</h3>
+    <ul><li>Beach with diving tower</li><li>Forest and nature trails</li></ul>
+    <h3>🚗 10-minute drive</h3>
+    <ul><li>Restaurants, pizzerias, burger places</li><li>TORP Shopping Centre</li><li>EV fast-charging stations</li></ul>
+    <h3>🚗 Within 30 minutes</h3>
+    <ul><li>Seafood restaurants and cafés</li><li>Uddevalla town centre</li><li>Fiskebäckskil</li><li>Ferry to Lysekil</li></ul>
     <h3>🚗 Within an hour</h3>
-    <ul>
-      <li>Lysekil</li><li>Smögen</li><li>Hunnebostrand</li><li>Kungshamn</li>
-    </ul>
+    <ul><li>Lysekil</li><li>Smögen</li><li>Hunnebostrand</li><li>Kungshamn</li></ul>
   </div>
-
   <div class="content lang-block lang-de">
     <h2>📍 Umgebung &amp; Aktivitäten</h2>
-    <h3>🏊 Zu Fuß erreichbar (ca. 10 Min.)</h3>
-    <ul>
-      <li>Strand mit Sprungturm</li>
-      <li>Wald- und Naturwege gleich um die Ecke</li>
-    </ul>
-    <h3>🚗 Ca. 10 Minuten mit dem Auto</h3>
-    <ul>
-      <li>Mehrere Restaurants, Pizzerien und Burgerlokale</li>
-      <li>Einkaufszentrum TORP – die meisten großen Ketten</li>
-      <li>Über 10 Schnellladestationen für dein Elektroauto</li>
-    </ul>
-    <h3>🚗 Innerhalb einer halben Stunde</h3>
-    <ul>
-      <li>Schöne Fischrestaurants, Cafés und Dorfläden</li>
-      <li>Häfen und die Innenstadt von Uddevalla</li>
-      <li>Fiskebäckskil</li>
-      <li>Die Fähre nach Lysekil</li>
-    </ul>
+    <h3>🏊 Zu Fuß (ca. 10 Min.)</h3>
+    <ul><li>Strand mit Sprungturm</li><li>Wald- und Naturwege</li></ul>
+    <h3>🚗 Ca. 10 Min. mit dem Auto</h3>
+    <ul><li>Restaurants, Pizzerien, Burgerlokale</li><li>Einkaufszentrum TORP</li><li>Schnellladestationen</li></ul>
+    <h3>🚗 Innerhalb 30 Minuten</h3>
+    <ul><li>Fischrestaurants und Cafés</li><li>Uddevalla Innenstadt</li><li>Fiskebäckskil</li><li>Fähre nach Lysekil</li></ul>
     <h3>🚗 Innerhalb einer Stunde</h3>
-    <ul>
-      <li>Lysekil</li><li>Smögen</li><li>Hunnebostrand</li><li>Kungshamn</li>
-    </ul>
+    <ul><li>Lysekil</li><li>Smögen</li><li>Hunnebostrand</li><li>Kungshamn</li></ul>
   </div>
-
 </main>
-
-<!-- ============ BEFORE YOU LEAVE HOME ============ -->
 <main class="page" id="page-before">
-
   <div class="content lang-block lang-sv active-lang">
     <h2>🧳 Innan du åker hemifrån</h2>
-    <h3>Parkering</h3>
-    <p>Gratis parkering finns inom fastigheten — ingen bokning krävs.</p>
+    <h3>Parkering</h3><p>Gratis parkering inom fastigheten.</p>
     <h3>Packtips</h3>
-    <ul>
-      <li>Badkläder och handduk till poolen</li>
-      <li>Bekväma skor för promenad till badplatsen och skogsstigarna (ca 10 min)</li>
-      <li>Något varmt på kvällen — havsbrisen kan vara sval även sommartid</li>
-    </ul>
-    <h3>Bra att veta innan avresa</h3>
-    <ul>
-      <li>Max <strong>7 gäster</strong> totalt enligt husreglerna</li>
-      <li>Incheckning sker själv – ingen behöver vara hemma och möta dig</li>
-      <li>Kontrollera <span class="home-link" onclick="showPage('weather')">vädret</span> innan ni packar</li>
-    </ul>
-    <p>Har du frågor innan avresan? Skicka ett meddelande via Airbnb redan nu så hinner vi svara.</p>
+    <ul><li>Badkläder och handduk</li><li>Bekväma skor (10 min till badplatsen)</li><li>Något varmt på kvällen</li></ul>
+    <h3>Bra att veta</h3>
+    <ul><li>Max <strong>7 gäster</strong></li><li>Självincheckning</li></ul>
   </div>
-
   <div class="content lang-block lang-en">
     <h2>🧳 Before You Leave Home</h2>
-    <h3>Parking</h3>
-    <p>Free parking is available on the property — no booking needed.</p>
+    <h3>Parking</h3><p>Free parking on the property.</p>
     <h3>Packing tips</h3>
-    <ul>
-      <li>Swimwear and a towel for the pool</li>
-      <li>Comfortable shoes for the walk to the beach and forest trails (about 10 min)</li>
-      <li>Something warm for the evening — the sea breeze can be cool even in summer</li>
-    </ul>
-    <h3>Good to know before you leave</h3>
-    <ul>
-      <li>Max <strong>7 guests</strong> in total, per the house rules</li>
-      <li>Check-in is self-service – no one needs to be home to meet you</li>
-      <li>Check the <span class="home-link" onclick="showPage('weather')">weather</span> before you pack</li>
-    </ul>
-    <p>Questions before you travel? Send a message via Airbnb now so we have time to answer.</p>
+    <ul><li>Swimwear and a towel</li><li>Comfortable shoes (10 min to the beach)</li><li>Something warm for the evening</li></ul>
+    <h3>Good to know</h3>
+    <ul><li>Max <strong>7 guests</strong></li><li>Self check-in</li></ul>
   </div>
-
   <div class="content lang-block lang-de">
     <h2>🧳 Vor der Abreise</h2>
-    <h3>Parken</h3>
-    <p>Kostenloses Parken auf dem Grundstück — keine Reservierung nötig.</p>
+    <h3>Parken</h3><p>Kostenloses Parken auf dem Grundstück.</p>
     <h3>Packtipps</h3>
-    <ul>
-      <li>Badesachen und Handtuch für den Pool</li>
-      <li>Bequeme Schuhe für den Spaziergang zum Strand und zu den Waldwegen (ca. 10 Min.)</li>
-      <li>Etwas Warmes für den Abend — die Meeresbrise kann auch im Sommer kühl sein</li>
-    </ul>
-    <h3>Gut zu wissen vor der Abreise</h3>
-    <ul>
-      <li>Maximal <strong>7 Gäste</strong> insgesamt laut Hausordnung</li>
-      <li>Der Check-in erfolgt selbstständig – niemand muss zu Hause sein, um dich zu empfangen</li>
-      <li>Prüfe das <span class="home-link" onclick="showPage('weather')">Wetter</span>, bevor du packst</li>
-    </ul>
-    <p>Fragen vor der Reise? Schick uns jetzt schon eine Nachricht über Airbnb, damit wir Zeit zum Antworten haben.</p>
+    <ul><li>Badesachen und Handtuch</li><li>Bequeme Schuhe (10 Min. zum Strand)</li><li>Etwas Warmes für den Abend</li></ul>
+    <h3>Gut zu wissen</h3>
+    <ul><li>Max <strong>7 Gäste</strong></li><li>Self-Check-in</li></ul>
   </div>
-
 </main>
-
-<!-- ============ ARRIVAL INFORMATION ============ -->
-<main class="page" id="page-arrival">
-
-  <div class="content lang-block lang-sv active-lang">
-    <h2>🔑 Ankomstinformation</h2>
-    <h3>Incheckning</h3>
-    <p>Incheckning: <strong>16:00–22:00</strong><br>Utcheckning: före <strong>10:00</strong></p>
-    <p>Detta är en <strong>självincheckning</strong> — du checkar in själv via ett digitalt låssystem med tagg, som hämtas i ett kodlåst nyckelskåp. Ingen behöver möta upp dig.</p>
-    <h3>Adress</h3>
-    <p>📍 <span class="fill" data-key="address">[Fyll i exakt adress – t.ex. Åsholmsvägen X, Lanesund, Uddevalla]</span></p>
-    <p>Tryck på <span class="home-link" onclick="showPage('map')">kartfliken</span> längst ner för vägbeskrivning.</p>
-    <h3>Nyckelskåp</h3>
-    <p>Nyckelskåpet hittar du <span class="fill" data-key="lockbox-location">[beskriv exakt placering, t.ex. "till höger om ytterdörren"]</span>.</p>
-    <p>Kod till nyckelskåpet: <span class="fill" data-key="lockbox-code">[ANGE KOD]</span></p>
-    <p>I skåpet hittar du den elektroniska taggen till dörren. Håll taggen mot låset för att låsa upp.</p>
-    <h3>Sen ankomst</h3>
-    <p>Eftersom incheckningen är självservice fungerar det fint att komma sent inom tidsfönstret 16:00–22:00. Kommer du senare än så, eller har du blivit försenad? Hör av dig så vi kan hjälpa dig till rätta.</p>
-    <h3>Behöver du hjälp?</h3>
-    <p>Skicka ett meddelande till Martin via Airbnb, eller ring <span class="fill" data-key="phone">[ANGE TELEFONNUMMER]</span>.</p>
-  </div>
-
-  <div class="content lang-block lang-en">
-    <h2>🔑 Arrival Information</h2>
-    <h3>Check-in</h3>
-    <p>Check-in: <strong>16:00–22:00</strong><br>Check-out: before <strong>10:00</strong></p>
-    <p>This is a <strong>self check-in</strong> — you check in yourself using a digital lock system with a tag, found in a code-locked key box. No one needs to meet you.</p>
-    <h3>Address</h3>
-    <p>📍 <span class="fill" data-key="address">[Enter exact address – e.g. Åsholmsvägen X, Lanesund, Uddevalla]</span></p>
-    <p>Tap the <span class="home-link" onclick="showPage('map')">map tab</span> at the bottom for directions.</p>
-    <h3>Key box</h3>
-    <p>You will find the key box <span class="fill" data-key="lockbox-location">[describe exact location, e.g. "to the right of the front door"]</span>.</p>
-    <p>Key box code: <span class="fill" data-key="lockbox-code">[ENTER CODE]</span></p>
-    <p>Inside you will find the electronic tag for the door. Hold the tag against the lock to unlock it.</p>
-    <h3>Late arrival</h3>
-    <p>Since check-in is self-service, arriving late within the 16:00–22:00 window works just fine. Arriving later than that, or delayed? Let us know so we can help.</p>
-    <h3>Need help?</h3>
-    <p>Send Martin a message via Airbnb, or call <span class="fill" data-key="phone">[ENTER PHONE NUMBER]</span>.</p>
-  </div>
-
-  <div class="content lang-block lang-de">
-    <h2>🔑 Ankunftsinformationen</h2>
-    <h3>Check-in</h3>
-    <p>Check-in: <strong>16:00–22:00 Uhr</strong><br>Check-out: vor <strong>10:00 Uhr</strong></p>
-    <p>Dies ist ein <strong>Self-Check-in</strong> — du checkst selbst ein über ein digitales Schließsystem mit Chip, den du in einer codegesicherten Schlüsselbox findest. Niemand muss dich empfangen.</p>
-    <h3>Adresse</h3>
-    <p>📍 <span class="fill" data-key="address">[Genaue Adresse eingeben – z. B. Åsholmsvägen X, Lanesund, Uddevalla]</span></p>
-    <p>Tippe unten auf den <span class="home-link" onclick="showPage('map')">Karten-Tab</span> für die Wegbeschreibung.</p>
-    <h3>Schlüsselbox</h3>
-    <p>Die Schlüsselbox findest du <span class="fill" data-key="lockbox-location">[genaue Position beschreiben, z. B. "rechts neben der Eingangstür"]</span>.</p>
-    <p>Code für die Schlüsselbox: <span class="fill" data-key="lockbox-code">[CODE EINGEBEN]</span></p>
-    <p>Darin findest du den elektronischen Chip für die Tür. Halte den Chip an das Schloss, um es zu öffnen.</p>
-    <h3>Späte Ankunft</h3>
-    <p>Da der Check-in selbstständig erfolgt, ist eine späte Ankunft innerhalb des Zeitfensters 16:00–22:00 Uhr kein Problem. Kommst du später oder hast du Verspätung? Sag uns Bescheid, damit wir helfen können.</p>
-    <h3>Brauchst du Hilfe?</h3>
-    <p>Schreib Martin eine Nachricht über Airbnb oder ruf an: <span class="fill" data-key="phone">[TELEFONNUMMER EINGEBEN]</span>.</p>
-  </div>
-
-</main>
-
-<!-- ============ WIFI ============ -->
-<main class="page" id="page-wifi">
-
-  <div class="content lang-block lang-sv active-lang">
-    <h2>📶 WiFi / Internet</h2>
-    <p>Det finns fast bredband med WiFi i hela huset.</p>
-    <ul>
-      <li><strong>Nätverksnamn (SSID):</strong> <span class="fill" data-key="wifi-ssid">[ANGE NÄTVERKSNAMN]</span></li>
-      <li><strong>Lösenord:</strong> <span class="fill" data-key="wifi-pass">[ANGE LÖSENORD]</span></li>
-    </ul>
-    <h3>Underhållning</h3>
-    <p>75 tums TV samt Sonos multiroom-ljudanläggning finns i huset. TV:n använder internet för streaming — logga in med dina egna konton och kom ihåg att logga ut innan utcheckning.</p>
-    <h3>Felsökning</h3>
-    <ul>
-      <li>Kontrollera att WiFi är aktiverat och att du är ansluten till rätt nätverk</li>
-      <li>Flytta dig närmare routern om signalen är svag</li>
-      <li>Stäng av/på WiFi på din enhet, eller glöm nätverket och anslut igen</li>
-      <li>Starta om TV:n eller streamingenheten om appar inte laddar</li>
-      <li>Fungerar det fortfarande inte? Hör av dig så hjälper vi till</li>
-    </ul>
-  </div>
-
-  <div class="content lang-block lang-en">
-    <h2>📶 WiFi / Internet</h2>
-    <p>There is a fixed broadband connection with WiFi throughout the house.</p>
-    <ul>
-      <li><strong>Network name (SSID):</strong> <span class="fill" data-key="wifi-ssid">[ENTER NETWORK NAME]</span></li>
-      <li><strong>Password:</strong> <span class="fill" data-key="wifi-pass">[ENTER PASSWORD]</span></li>
-    </ul>
-    <h3>Entertainment</h3>
-    <p>A 75-inch TV and a Sonos multiroom sound system are available in the house. The TV uses the internet for streaming — sign in with your own accounts and remember to log out before check-out.</p>
-    <h3>Troubleshooting</h3>
-    <ul>
-      <li>Make sure WiFi is enabled and you are connected to the right network</li>
-      <li>Move closer to the router if the signal is weak</li>
-      <li>Turn WiFi off/on on your device, or forget the network and reconnect</li>
-      <li>Restart the TV or streaming device if apps will not load</li>
-      <li>Still not working? Let us know and we will help</li>
-    </ul>
-  </div>
-
-  <div class="content lang-block lang-de">
-    <h2>📶 WLAN / Internet</h2>
-    <p>Im ganzen Haus gibt es eine feste Breitbandverbindung mit WLAN.</p>
-    <ul>
-      <li><strong>Netzwerkname (SSID):</strong> <span class="fill" data-key="wifi-ssid">[NETZWERKNAME EINGEBEN]</span></li>
-      <li><strong>Passwort:</strong> <span class="fill" data-key="wifi-pass">[PASSWORT EINGEBEN]</span></li>
-    </ul>
-    <h3>Unterhaltung</h3>
-    <p>Im Haus gibt es einen 75-Zoll-Fernseher und eine Sonos-Multiroom-Soundanlage. Der Fernseher nutzt das Internet zum Streamen — melde dich mit deinen eigenen Konten an und denk daran, dich vor dem Check-out wieder abzumelden.</p>
-    <h3>Fehlerbehebung</h3>
-    <ul>
-      <li>Stelle sicher, dass WLAN aktiviert ist und du mit dem richtigen Netzwerk verbunden bist</li>
-      <li>Geh näher an den Router, falls das Signal schwach ist</li>
-      <li>Schalte WLAN an deinem Gerät aus/ein, oder vergiss das Netzwerk und verbinde dich neu</li>
-      <li>Starte den Fernseher oder das Streaming-Gerät neu, wenn Apps nicht laden</li>
-      <li>Funktioniert es trotzdem nicht? Sag uns Bescheid, wir helfen gerne</li>
-    </ul>
-  </div>
-
-</main>
-
-<!-- ============ WEATHER ============ -->
 <main class="page" id="page-weather">
-
   <div class="content lang-block lang-sv active-lang">
     <h2>☀️ Väder i Uddevalla</h2>
-    <p>Västkusten kan bjuda på allt från strålande solsken till friska havsvindar — packa lager-på-lager-kläder oavsett årstid.</p>
-    <p>Kolla aktuell väderprognos för Uddevalla/Lanesund innan avresa:</p>
-    <p><a href="https://www.smhi.se" target="_blank" rel="noopener">SMHI – väderprognos →</a></p>
+    <p>Packa lager-på-lager-kläder oavsett årstid.</p>
+    <p><a href="https://www.smhi.se" target="_blank">SMHI – väderprognos →</a></p>
   </div>
-
   <div class="content lang-block lang-en">
     <h2>☀️ Weather in Uddevalla</h2>
-    <p>The west coast can offer everything from bright sunshine to a brisk sea breeze — pack in layers no matter the season.</p>
-    <p>Check the current forecast for Uddevalla/Lanesund before you leave:</p>
-    <p><a href="https://www.smhi.se" target="_blank" rel="noopener">SMHI weather forecast →</a></p>
+    <p>Pack in layers no matter the season.</p>
+    <p><a href="https://www.smhi.se" target="_blank">SMHI weather forecast →</a></p>
   </div>
-
   <div class="content lang-block lang-de">
     <h2>☀️ Wetter in Uddevalla</h2>
-    <p>Die Westküste kann alles bieten — von strahlendem Sonnenschein bis zu frischer Meeresbrise. Pack am besten im Zwiebelprinzip, egal zu welcher Jahreszeit.</p>
-    <p>Prüfe vor der Abreise die aktuelle Wettervorhersage für Uddevalla/Lanesund:</p>
-    <p><a href="https://www.smhi.se" target="_blank" rel="noopener">SMHI Wettervorhersage →</a></p>
+    <p>Pack am besten im Zwiebelprinzip.</p>
+    <p><a href="https://www.smhi.se" target="_blank">SMHI Wettervorhersage →</a></p>
   </div>
-
 </main>
-
-<!-- ============ ABOUT THE ACCOMMODATION ============ -->
 <main class="page" id="page-about">
-
   <div class="content lang-block lang-sv active-lang">
     <h2>🏠 Om boendet</h2>
-    <div class="pill-row">
-      <span class="pill">7 gäster</span><span class="pill">3 sovrum</span><span class="pill">2 badrum</span>
-      <span class="pill">Pool</span><span class="pill">Havsutsikt</span>
-    </div>
-    <p>Njut och koppla av i detta lugna, eleganta boende med högt i tak och takterrass. Milsvid havsutsikt, stor altan och grill.</p>
+    <div class="pill-row"><span class="pill">7 gäster</span><span class="pill">3 sovrum</span><span class="pill">2 badrum</span><span class="pill">Pool</span><span class="pill">Havsutsikt</span></div>
     <h3>Sovrum</h3>
     <ul>
-      <li><strong>Master bedroom:</strong> Kingsize-säng (220 cm) med en-suite badrum, badkar och dubbeldusch</li>
-      <li><strong>Sovrum 2 (barnrum):</strong> 120 cm säng samt skrivbord</li>
-      <li><strong>Sovrum 3:</strong> Havsutsikt, eget skrivbord och arbetsstol, 120 cm säng samt sovloft med 90 cm luftmadrass</li>
+      <li><strong>Master bedroom:</strong> Kingsize (220 cm), en-suite med badkar och dubbeldusch</li>
+      <li><strong>Sovrum 2:</strong> 120 cm säng, skrivbord</li>
+      <li><strong>Sovrum 3:</strong> Havsutsikt, 120 cm säng, sovloft med luftmadrass</li>
     </ul>
-    <p>Gästtoalett med handfat och dusch finns också.</p>
     <h3>Kök &amp; vardagsrum</h3>
-    <ul>
-      <li>Fullt utrustat kök: mikro/varmluftsugn, diskmaskin, kaffebryggare, äggkokare, vattenkokare</li>
-      <li>Ismaskin, vinkyl, kyl och frys</li>
-      <li>Köksö med havsutsikt, induktionshäll och fläkt</li>
-      <li>Öppen spis och matsalsbord med plats för 10 personer</li>
-      <li>75 tums TV och Sonos multiroom-ljud</li>
-    </ul>
+    <ul><li>Fullt utrustat kök, ismaskin, vinkyl</li><li>Köksö med havsutsikt</li><li>Öppen spis, matbord för 10</li><li>75" TV och Sonos-ljud</li></ul>
     <h3>Ute</h3>
-    <ul>
-      <li>Egen pool</li><li>Takterrass med två soffgrupper och matbord</li><li>Grill</li><li>Gratis parkering inom fastigheten</li>
-    </ul>
-    <p>Vill du ha plats för upp till 7 gäster med extra sovplats, eget pentry, bastu och badrum? Läs om <span class="home-link" onclick="showPage('enhance')">Poolhuset</span>.</p>
+    <ul><li>Pool</li><li>Takterrass med soffgrupper</li><li>Grill</li><li>Gratis parkering</li></ul>
   </div>
-
   <div class="content lang-block lang-en">
     <h2>🏠 About the Accommodation</h2>
-    <div class="pill-row">
-      <span class="pill">7 guests</span><span class="pill">3 bedrooms</span><span class="pill">2 bathrooms</span>
-      <span class="pill">Pool</span><span class="pill">Sea view</span>
-    </div>
-    <p>Relax and unwind in this calm, elegant home with high ceilings and a roof terrace. Endless sea views, a large deck and a BBQ grill.</p>
+    <div class="pill-row"><span class="pill">7 guests</span><span class="pill">3 bedrooms</span><span class="pill">2 bathrooms</span><span class="pill">Pool</span><span class="pill">Sea view</span></div>
     <h3>Bedrooms</h3>
     <ul>
-      <li><strong>Master bedroom:</strong> King-size bed (220 cm) with en-suite bathroom, bathtub and double shower</li>
-      <li><strong>Bedroom 2 (kids' room):</strong> 120 cm bed plus a desk</li>
-      <li><strong>Bedroom 3:</strong> Sea view, own desk and chair, 120 cm bed plus a sleeping loft with a 90 cm air mattress</li>
+      <li><strong>Master bedroom:</strong> King-size (220 cm), en-suite with bathtub and double shower</li>
+      <li><strong>Bedroom 2:</strong> 120 cm bed, desk</li>
+      <li><strong>Bedroom 3:</strong> Sea view, 120 cm bed, sleeping loft with air mattress</li>
     </ul>
-    <p>There is also a guest toilet with sink and shower.</p>
     <h3>Kitchen &amp; living area</h3>
-    <ul>
-      <li>Fully equipped kitchen: combi/convection oven, dishwasher, coffee maker, egg cooker, kettle</li>
-      <li>Ice maker, wine fridge, fridge and freezer</li>
-      <li>Kitchen island with sea view, induction hob and extractor fan</li>
-      <li>Open fireplace and dining table seating 10</li>
-      <li>75-inch TV and Sonos multiroom sound</li>
-    </ul>
+    <ul><li>Fully equipped kitchen, ice maker, wine fridge</li><li>Kitchen island with sea view</li><li>Open fireplace, dining table for 10</li><li>75" TV and Sonos sound</li></ul>
     <h3>Outdoors</h3>
-    <ul>
-      <li>Private pool</li><li>Roof terrace with two sitting areas and a dining table</li><li>BBQ grill</li><li>Free parking on the property</li>
-    </ul>
-    <p>Want room for up to 7 guests with an extra sleeping space, kitchenette, sauna and bathroom? Read about the <span class="home-link" onclick="showPage('enhance')">Pool House</span>.</p>
+    <ul><li>Pool</li><li>Roof terrace with seating</li><li>BBQ grill</li><li>Free parking</li></ul>
   </div>
-
   <div class="content lang-block lang-de">
     <h2>🏠 Über die Unterkunft</h2>
-    <div class="pill-row">
-      <span class="pill">7 Gäste</span><span class="pill">3 Schlafzimmer</span><span class="pill">2 Badezimmer</span>
-      <span class="pill">Pool</span><span class="pill">Meerblick</span>
-    </div>
-    <p>Entspanne in diesem ruhigen, eleganten Zuhause mit hohen Decken und Dachterrasse. Endloser Meerblick, große Terrasse und Grill.</p>
+    <div class="pill-row"><span class="pill">7 Gäste</span><span class="pill">3 Schlafzimmer</span><span class="pill">2 Badezimmer</span><span class="pill">Pool</span><span class="pill">Meerblick</span></div>
     <h3>Schlafzimmer</h3>
     <ul>
-      <li><strong>Hauptschlafzimmer:</strong> Kingsize-Bett (220 cm) mit eigenem Bad, Badewanne und Doppeldusche</li>
-      <li><strong>Schlafzimmer 2 (Kinderzimmer):</strong> 120-cm-Bett sowie Schreibtisch</li>
-      <li><strong>Schlafzimmer 3:</strong> Meerblick, eigener Schreibtisch und Stuhl, 120-cm-Bett sowie Schlafboden mit 90-cm-Luftmatratze</li>
+      <li><strong>Hauptschlafzimmer:</strong> Kingsize (220 cm), Bad mit Badewanne und Doppeldusche</li>
+      <li><strong>Schlafzimmer 2:</strong> 120-cm-Bett, Schreibtisch</li>
+      <li><strong>Schlafzimmer 3:</strong> Meerblick, 120-cm-Bett, Schlafboden mit Luftmatratze</li>
     </ul>
-    <p>Außerdem gibt es eine Gästetoilette mit Waschbecken und Dusche.</p>
     <h3>Küche &amp; Wohnbereich</h3>
-    <ul>
-      <li>Voll ausgestattete Küche: Kombi-/Heißluftofen, Geschirrspüler, Kaffeemaschine, Eierkocher, Wasserkocher</li>
-      <li>Eiswürfelmaschine, Weinkühlschrank, Kühl- und Gefrierschrank</li>
-      <li>Kücheninsel mit Meerblick, Induktionskochfeld und Dunstabzug</li>
-      <li>Offener Kamin und Esstisch für 10 Personen</li>
-      <li>75-Zoll-Fernseher und Sonos-Multiroom-Sound</li>
-    </ul>
+    <ul><li>Voll ausgestattete Küche, Eismaschine, Weinkühlschrank</li><li>Kücheninsel mit Meerblick</li><li>Kamin, Esstisch für 10</li><li>75" TV und Sonos-Sound</li></ul>
     <h3>Außenbereich</h3>
-    <ul>
-      <li>Eigener Pool</li><li>Dachterrasse mit zwei Sitzgruppen und Esstisch</li><li>Grill</li><li>Kostenloses Parken auf dem Grundstück</li>
-    </ul>
-    <p>Platz für bis zu 7 Gäste mit zusätzlichem Schlafplatz, Küchenzeile, Sauna und Bad? Lies mehr über das <span class="home-link" onclick="showPage('enhance')">Poolhaus</span>.</p>
+    <ul><li>Pool</li><li>Dachterrasse mit Sitzgruppen</li><li>Grill</li><li>Kostenloses Parken</li></ul>
   </div>
-
 </main>
-
-<!-- ============ SAFETY & RULES ============ -->
 <main class="page" id="page-rules">
-
   <div class="content lang-block lang-sv active-lang">
     <h2>📖 Säkerhet &amp; Regler</h2>
     <details class="subcard" open>
@@ -717,10 +467,7 @@
     </details>
     <details class="subcard">
       <summary>Brandvarnare &amp; övervakning <span class="chevron">⌄</span></summary>
-      <div class="inner">
-        <p>Observera att det <strong>inte finns kolmonoxidlarm</strong> i boendet.</p>
-        <p>Det finns övervakningskameror utomhus på fastigheten, i syfte att skydda egendomen.</p>
-      </div>
+      <div class="inner"><p>Det finns <strong>inte kolmonoxidlarm</strong> i boendet. Övervakningskameror finns utomhus.</p></div>
     </details>
     <details class="subcard">
       <summary>Incheckning &amp; utcheckning <span class="chevron">⌄</span></summary>
@@ -728,22 +475,18 @@
     </details>
     <details class="subcard">
       <summary>Allmänna regler <span class="chevron">⌄</span></summary>
-      <div class="inner"><ul><li><span class="fill" data-key="rules-extra">[Lägg till ev. regler om husdjur, fester, rökning m.m.]</span></li></ul></div>
+      <div class="inner"><ul><li><span class="fill" data-key="rules-extra">[Lägg till regler om husdjur, fester, rökning]</span></li></ul></div>
     </details>
   </div>
-
   <div class="content lang-block lang-en">
     <h2>📖 Safety &amp; Rules</h2>
     <details class="subcard" open>
       <summary>Pool – important safety info <span class="chevron">⌄</span></summary>
-      <div class="inner"><div class="note">⚠️ The pool has no fence or lock. Children should always be supervised by an adult near the pool.</div></div>
+      <div class="inner"><div class="note">⚠️ The pool has no fence or lock. Children must always be supervised near the pool.</div></div>
     </details>
     <details class="subcard">
       <summary>Smoke / CO detectors &amp; surveillance <span class="chevron">⌄</span></summary>
-      <div class="inner">
-        <p>Please note there is <strong>no carbon monoxide alarm</strong> in the accommodation.</p>
-        <p>There are outdoor security cameras on the property, used to protect the home.</p>
-      </div>
+      <div class="inner"><p>There is <strong>no carbon monoxide alarm</strong>. Outdoor security cameras are on the property.</p></div>
     </details>
     <details class="subcard">
       <summary>Check-in &amp; check-out <span class="chevron">⌄</span></summary>
@@ -751,22 +494,18 @@
     </details>
     <details class="subcard">
       <summary>General rules <span class="chevron">⌄</span></summary>
-      <div class="inner"><ul><li><span class="fill" data-key="rules-extra">[Add any rules about pets, parties, smoking, etc.]</span></li></ul></div>
+      <div class="inner"><ul><li><span class="fill" data-key="rules-extra">[Add rules about pets, parties, smoking]</span></li></ul></div>
     </details>
   </div>
-
   <div class="content lang-block lang-de">
     <h2>📖 Sicherheit &amp; Regeln</h2>
     <details class="subcard" open>
-      <summary>Pool – wichtiger Sicherheitshinweis <span class="chevron">⌄</span></summary>
-      <div class="inner"><div class="note">⚠️ Der Pool hat keinen Zaun und kein Schloss. Kinder sollten in der Nähe des Pools immer von einem Erwachsenen beaufsichtigt werden.</div></div>
+      <summary>Pool – Sicherheitshinweis <span class="chevron">⌄</span></summary>
+      <div class="inner"><div class="note">⚠️ Der Pool hat keinen Zaun. Kinder müssen immer beaufsichtigt werden.</div></div>
     </details>
     <details class="subcard">
       <summary>Rauchmelder &amp; Überwachung <span class="chevron">⌄</span></summary>
-      <div class="inner">
-        <p>Bitte beachte, dass es in der Unterkunft <strong>keinen Kohlenmonoxidmelder</strong> gibt.</p>
-        <p>Auf dem Grundstück gibt es Außenüberwachungskameras zum Schutz der Immobilie.</p>
-      </div>
+      <div class="inner"><p>Es gibt <strong>keinen Kohlenmonoxidmelder</strong>. Außenkameras sind auf dem Grundstück.</p></div>
     </details>
     <details class="subcard">
       <summary>Check-in &amp; Check-out <span class="chevron">⌄</span></summary>
@@ -774,362 +513,94 @@
     </details>
     <details class="subcard">
       <summary>Allgemeine Regeln <span class="chevron">⌄</span></summary>
-      <div class="inner"><ul><li><span class="fill" data-key="rules-extra">[Ggf. Regeln zu Haustieren, Feiern, Rauchen usw. hinzufügen]</span></li></ul></div>
+      <div class="inner"><ul><li><span class="fill" data-key="rules-extra">[Regeln zu Haustieren, Feiern, Rauchen]</span></li></ul></div>
     </details>
   </div>
-
 </main>
-
-<!-- ============ FAREWELL ============ -->
 <main class="page" id="page-farewell">
-
   <div class="content lang-block lang-sv active-lang">
     <h2>🧳 På återseende!</h2>
-    <p>Vi hoppas att du har haft en fantastisk vistelse vid havet!</p>
-    <h3>Innan du checkar ut</h3>
     <ul>
-      <li>Utcheckning sker före <strong>10:00</strong></li>
-      <li>Logga ut från eventuella streamingkonton på TV:n</li>
-      <li>Lägg tillbaka den elektroniska taggen i nyckelskåpet och lås det</li>
-      <li>Stäng och lås alla fönster och dörrar</li>
-      <li><span class="fill" data-key="checkout-extra">[Lägg till ev. instruktion om disk, sopor eller temperatur]</span></li>
+      <li>Utcheckning före <strong>10:00</strong></li>
+      <li>Logga ut från streamingkonton på TV:n</li>
+      <li>Lägg tillbaka taggen i nyckelskåpet</li>
+      <li>Stäng och lås fönster och dörrar</li>
+      <li><span class="fill" data-key="checkout-extra">[Instruktion om disk, sopor m.m.]</span></li>
     </ul>
-    <p>Tack för att du valde Västkust-villan — du är varmt välkommen tillbaka! Lämna gärna en recension om du har en stund. ❤️</p>
+    <p>Tack för att du valde Västkust-villan — välkommen tillbaka! ❤️</p>
   </div>
-
   <div class="content lang-block lang-en">
     <h2>🧳 See You Soon!</h2>
-    <p>We hope you have had a wonderful stay by the sea!</p>
-    <h3>Before you check out</h3>
     <ul>
-      <li>Check-out is before <strong>10:00</strong></li>
-      <li>Sign out of any streaming accounts on the TV</li>
-      <li>Put the electronic tag back in the key box and lock it</li>
+      <li>Check-out before <strong>10:00</strong></li>
+      <li>Sign out of streaming accounts on the TV</li>
+      <li>Return the tag to the key box</li>
       <li>Close and lock all windows and doors</li>
-      <li><span class="fill" data-key="checkout-extra">[Add any instructions about dishes, trash, or temperature]</span></li>
+      <li><span class="fill" data-key="checkout-extra">[Instructions about dishes, trash, etc.]</span></li>
     </ul>
-    <p>Thank you for choosing the West Coast Villa — you are warmly welcome back! Feel free to leave a review if you have a moment. ❤️</p>
+    <p>Thank you for choosing the West Coast Villa — welcome back! ❤️</p>
   </div>
-
   <div class="content lang-block lang-de">
     <h2>🧳 Bis bald!</h2>
-    <p>Wir hoffen, du hattest einen wunderschönen Aufenthalt am Meer!</p>
-    <h3>Vor dem Check-out</h3>
     <ul>
-      <li>Check-out ist vor <strong>10:00 Uhr</strong></li>
-      <li>Melde dich von eventuellen Streaming-Konten am Fernseher ab</li>
-      <li>Lege den elektronischen Chip zurück in die Schlüsselbox und schließe sie ab</li>
-      <li>Schließe und verriegele alle Fenster und Türen</li>
-      <li><span class="fill" data-key="checkout-extra">[Ggf. Hinweise zu Geschirr, Müll oder Temperatur hinzufügen]</span></li>
+      <li>Check-out vor <strong>10:00 Uhr</strong></li>
+      <li>Von Streaming-Konten am Fernseher abmelden</li>
+      <li>Chip zurück in die Schlüsselbox legen</li>
+      <li>Fenster und Türen schließen und abschließen</li>
+      <li><span class="fill" data-key="checkout-extra">[Hinweise zu Geschirr, Müll usw.]</span></li>
     </ul>
-    <p>Danke, dass du dich für die Westküsten-Villa entschieden hast — du bist herzlich willkommen zurück! Hinterlasse gerne eine Bewertung, wenn du einen Moment Zeit hast. ❤️</p>
+    <p>Danke für deinen Aufenthalt — herzlich willkommen zurück! ❤️</p>
   </div>
-
 </main>
-
-<!-- ============ MAP ============ -->
 <main class="page" id="page-map">
-
   <div class="map-box lang-block lang-sv active-lang">
-    <p>Boendet ligger i Lanesund, Uddevalla, Västra Götalands län.</p>
-    <p>Exakt adress: <span class="fill" data-key="address">[Fyll i adress]</span></p>
-    <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Lanesund+Uddevalla" target="_blank" rel="noopener">Öppna i Google Maps</a>
+    <p>Boendet ligger i Lanesund, Uddevalla.</p>
+    <p>Adress: <span class="fill" data-key="address">[Fyll i adress]</span></p>
+    <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Lanesund+Uddevalla" target="_blank">Öppna i Google Maps</a>
   </div>
-
   <div class="map-box lang-block lang-en">
-    <p>The property is located in Lanesund, Uddevalla, Västra Götaland County.</p>
-    <p>Exact address: <span class="fill" data-key="address">[Enter address]</span></p>
-    <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Lanesund+Uddevalla" target="_blank" rel="noopener">Open in Google Maps</a>
+    <p>The property is in Lanesund, Uddevalla.</p>
+    <p>Address: <span class="fill" data-key="address">[Enter address]</span></p>
+    <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Lanesund+Uddevalla" target="_blank">Open in Google Maps</a>
   </div>
-
   <div class="map-box lang-block lang-de">
-    <p>Die Unterkunft liegt in Lanesund, Uddevalla, Provinz Västra Götaland.</p>
-    <p>Genaue Adresse: <span class="fill" data-key="address">[Adresse eingeben]</span></p>
-    <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Lanesund+Uddevalla" target="_blank" rel="noopener">In Google Maps öffnen</a>
+    <p>Die Unterkunft liegt in Lanesund, Uddevalla.</p>
+    <p>Adresse: <span class="fill" data-key="address">[Adresse eingeben]</span></p>
+    <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Lanesund+Uddevalla" target="_blank">In Google Maps öffnen</a>
   </div>
-
 </main>
-
-<!-- ============ SEARCH ============ -->
 <main class="page" id="page-search">
   <div class="search-box">
-    <input class="search-input" id="searchInput" type="text" oninput="runSearch()">
+    <input class="search-input" id="searchInput" type="text" oninput="runSearch()" placeholder="Sök...">
     <div class="search-results" id="searchResults"></div>
   </div>
 </main>
-
 <nav class="bottomnav">
-  <button class="active" id="nav-home" onclick="showPage('home-grid')"><span class="nav-icon">🏠</span><span data-key-ui="navHome"></span></button>
-  <button id="nav-info" onclick="showPage('home-grid')"><span class="nav-icon">ℹ️</span><span data-key-ui="navInfo"></span></button>
-  <button id="nav-map" onclick="showPage('map')"><span class="nav-icon">📍</span><span data-key-ui="navMap"></span></button>
-  <button id="nav-search" onclick="showPage('search')"><span class="nav-icon">🔍</span><span data-key-ui="navSearch"></span></button>
+  <button class="active" id="nav-home" onclick="showPage('home-grid')"><span class="nav-icon">🏠</span><span data-key-ui="navHome">HEM</span></button>
+  <button id="nav-info" onclick="showPage('home-grid')"><span class="nav-icon">ℹ️</span><span data-key-ui="navInfo">INFO</span></button>
+  <button id="nav-map" onclick="showPage('map')"><span class="nav-icon">📍</span><span data-key-ui="navMap">KARTA</span></button>
+  <button id="nav-search" onclick="showPage('search')"><span class="nav-icon">🔍</span><span data-key-ui="navSearch">SÖK</span></button>
 </nav>
-
 <script>
-  const UI = {
-    sv: {
-      brand:"VÄSTKUST-VILLAN", editTooltip:"Redigera fält", shareTooltip:"Dela",
-      editBanner:"Redigeringsläge på — klicka på ett gulmarkerat fält, skriv din text och klicka utanför för att spara.",
-      navHome:"HEM", navInfo:"INFO", navMap:"KARTA", navSearch:"SÖK",
-      titleMap:"Karta", titleSearch:"Sök",
-      searchPlaceholder:"Sök t.ex. wifi, pool, kod...",
-      searchEmpty:"Inga resultat. Försök med ett annat ord.",
-      toastSaved:"Sparat ✓", toastFailed:"Kunde inte spara",
-      toastNoStorage:"Sparas inte (öppna sidan via Claude för att spara)",
-      shareTitle:"Dela via", shareCopyLink:"Kopiera länk", shareEmail:"E-post",
-      shareMessage:"Meddelande", shareWhatsapp:"WhatsApp", shareCopied:"Länk kopierad ✓",
-      tile_welcome:"Välkommen", tile_enhance:"Gör mer av vistelsen", tile_area:"Området & Aktiviteter",
-      tile_before:"Innan du åker hemifrån", tile_arrival:"Ankomstinformation", tile_wifi:"WiFi / Internet",
-      tile_weather:"Väder", tile_about:"Om boendet", tile_rules:"Säkerhet & Regler", tile_farewell:"På återseende!"
-    },
-    en: {
-      brand:"WEST COAST VILLA", editTooltip:"Edit fields", shareTooltip:"Share",
-      editBanner:"Edit mode on — click a highlighted field, type your text, then click outside to save.",
-      navHome:"HOME", navInfo:"INFO", navMap:"MAP", navSearch:"SEARCH",
-      titleMap:"Map", titleSearch:"Search",
-      searchPlaceholder:"Search e.g. wifi, pool, code...",
-      searchEmpty:"No results. Try a different word.",
-      toastSaved:"Saved ✓", toastFailed:"Could not save",
-      toastNoStorage:"Not saved (open via Claude to save)",
-      shareTitle:"Share via", shareCopyLink:"Copy link", shareEmail:"Email",
-      shareMessage:"Message", shareWhatsapp:"WhatsApp", shareCopied:"Link copied ✓",
-      tile_welcome:"Welcome", tile_enhance:"Enhance your Stay", tile_area:"Local Area & Activities",
-      tile_before:"Before You Leave Home", tile_arrival:"Arrival Information", tile_wifi:"WiFi / Internet",
-      tile_weather:"Weather", tile_about:"About the Accommodation", tile_rules:"Safety & Rules", tile_farewell:"See You Soon!"
-    },
-    de: {
-      brand:"WESTKÜSTEN-VILLA", editTooltip:"Felder bearbeiten", shareTooltip:"Teilen",
-      editBanner:"Bearbeitungsmodus aktiv — klicke auf ein markiertes Feld, gib deinen Text ein und klicke daneben, um zu speichern.",
-      navHome:"START", navInfo:"INFO", navMap:"KARTE", navSearch:"SUCHE",
-      titleMap:"Karte", titleSearch:"Suche",
-      searchPlaceholder:"Suche z. B. WLAN, Pool, Code...",
-      searchEmpty:"Keine Ergebnisse. Versuch ein anderes Wort.",
-      toastSaved:"Gespeichert ✓", toastFailed:"Speichern fehlgeschlagen",
-      toastNoStorage:"Wird nicht gespeichert (über Claude öffnen, um zu speichern)",
-      shareTitle:"Teilen über", shareCopyLink:"Link kopieren", shareEmail:"E-Mail",
-      shareMessage:"Nachricht", shareWhatsapp:"WhatsApp", shareCopied:"Link kopiert ✓",
-      tile_welcome:"Willkommen", tile_enhance:"Mehr aus deinem Aufenthalt machen", tile_area:"Umgebung & Aktivitäten",
-      tile_before:"Vor der Abreise", tile_arrival:"Ankunftsinformationen", tile_wifi:"WLAN / Internet",
-      tile_weather:"Wetter", tile_about:"Über die Unterkunft", tile_rules:"Sicherheit & Regeln", tile_farewell:"Bis bald!"
-    }
-  };
-
-  const searchIndex = [
-    {id:"welcome", sv:{t:"Välkommen", s:"Hälsning, översikt och kontaktväg till Martin."}, en:{t:"Welcome", s:"Greeting, overview and how to contact Martin."}, de:{t:"Willkommen", s:"Begrüßung, Überblick und Kontaktmöglichkeit zu Martin."}},
-    {id:"enhance", sv:{t:"Gör mer av vistelsen – Poolhuset", s:"Hyr Poolhuset med bastu, pentry och extra sovplats för 1500 kr/natt."}, en:{t:"Enhance your Stay – Pool House", s:"Add the Pool House with sauna, kitchenette and extra sleeping space for 1500 SEK/night."}, de:{t:"Mehr aus deinem Aufenthalt machen – Poolhaus", s:"Poolhaus mit Sauna, Küchenzeile und zusätzlichem Schlafplatz für 1500 SEK/Nacht dazubuchen."}},
-    {id:"area", sv:{t:"Området & Aktiviteter", s:"Badplats, hopptorn, restauranger, TORP köpcenter, färjan till Lysekil."}, en:{t:"Local Area & Activities", s:"Beach, diving tower, restaurants, TORP shopping centre, ferry to Lysekil."}, de:{t:"Umgebung & Aktivitäten", s:"Strand, Sprungturm, Restaurants, Einkaufszentrum TORP, Fähre nach Lysekil."}},
-    {id:"before", sv:{t:"Innan du åker hemifrån", s:"Parkering, packtips och husregler om antal gäster."}, en:{t:"Before You Leave Home", s:"Parking, packing tips and the house rule on guest numbers."}, de:{t:"Vor der Abreise", s:"Parken, Packtipps und Hausregel zur Gästezahl."}},
-    {id:"arrival", sv:{t:"Ankomstinformation", s:"Incheckning 16:00–22:00, nyckelskåp, kod, adress, sen ankomst."}, en:{t:"Arrival Information", s:"Check-in 16:00–22:00, key box, code, address, late arrival."}, de:{t:"Ankunftsinformationen", s:"Check-in 16:00–22:00 Uhr, Schlüsselbox, Code, Adresse, späte Ankunft."}},
-    {id:"wifi", sv:{t:"WiFi / Internet", s:"Nätverksnamn, lösenord, TV-streaming och felsökning."}, en:{t:"WiFi / Internet", s:"Network name, password, TV streaming and troubleshooting."}, de:{t:"WLAN / Internet", s:"Netzwerkname, Passwort, TV-Streaming und Fehlerbehebung."}},
-    {id:"weather", sv:{t:"Väder", s:"Länk till SMHIs väderprognos för Uddevalla."}, en:{t:"Weather", s:"Link to SMHI weather forecast for Uddevalla."}, de:{t:"Wetter", s:"Link zur SMHI-Wettervorhersage für Uddevalla."}},
-    {id:"about", sv:{t:"Om boendet", s:"Sovrum, kök, terrass, pool och utrustning."}, en:{t:"About the Accommodation", s:"Bedrooms, kitchen, terrace, pool and amenities."}, de:{t:"Über die Unterkunft", s:"Schlafzimmer, Küche, Terrasse, Pool und Ausstattung."}},
-    {id:"rules", sv:{t:"Säkerhet & Regler", s:"Pool utan grind, inget kolmonoxidlarm, övervakningskameror, max 7 gäster."}, en:{t:"Safety & Rules", s:"Pool without a fence, no carbon monoxide alarm, security cameras, max 7 guests."}, de:{t:"Sicherheit & Regeln", s:"Pool ohne Zaun, kein Kohlenmonoxidmelder, Überwachungskameras, max. 7 Gäste."}},
-    {id:"farewell", sv:{t:"På återseende!", s:"Utcheckningsrutiner före 10:00."}, en:{t:"See You Soon!", s:"Check-out procedure before 10:00."}, de:{t:"Bis bald!", s:"Check-out-Ablauf vor 10:00 Uhr."}}
-  ];
-
-  let currentLang = "sv";
-  let currentPage = "home-grid";
-
-  function showPage(target){
-    document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
-    document.querySelectorAll(".bottomnav button").forEach(b => b.classList.remove("active"));
-    currentPage = target;
-
-    if(target === "home-grid"){
-      document.getElementById("home").classList.add("active");
-      document.getElementById("nav-info").classList.add("active");
-      document.body.classList.remove("detail-open");
-    } else if(target === "map"){
-      document.getElementById("page-map").classList.add("active");
-      document.getElementById("nav-map").classList.add("active");
-      document.body.classList.add("detail-open");
-    } else if(target === "search"){
-      document.getElementById("page-search").classList.add("active");
-      document.getElementById("nav-search").classList.add("active");
-      document.body.classList.add("detail-open");
-      document.getElementById("searchInput").focus();
-      runSearch();
-    } else {
-      const el = document.getElementById("page-" + target);
-      if(el){
-        el.classList.add("active");
-        document.getElementById("nav-info").classList.add("active");
-        document.body.classList.add("detail-open");
-      }
-    }
-    setHeaderForPage(target);
-  }
-
-  function setHeaderForPage(target){
-    const titleEl = document.getElementById("pageTitle");
-    const brandEl = document.getElementById("brandBlock");
-    const u = UI[currentLang];
-    if(target === "home-grid"){
-      titleEl.style.display = "none";
-      brandEl.style.display = "flex";
-      return;
-    }
-    brandEl.style.display = "none";
-    titleEl.style.display = "inline-block";
-    if(target === "map") titleEl.textContent = u.titleMap;
-    else if(target === "search") titleEl.textContent = u.titleSearch;
-    else titleEl.textContent = u["tile_" + target] || "";
-  }
-
-  function goHome(){ showPage("home-grid"); }
-
-  function openShareModal(){
-    document.body.classList.add("share-open");
-  }
-  function closeShareModal(){ document.body.classList.remove("share-open"); }
-
-  function getShareUrl(){ return window.location.href; }
-
-  async function shareCopyLink(){
-    const url = getShareUrl();
-    const u = UI[currentLang];
-    try{
-      await navigator.clipboard.writeText(url);
-      showToast(u.shareCopied);
-    }catch(err){
-      try{
-        const ta = document.createElement("textarea");
-        ta.value = url;
-        ta.style.position = "fixed";
-        ta.style.opacity = "0";
-        document.body.appendChild(ta);
-        ta.select();
-        document.execCommand("copy");
-        ta.remove();
-        showToast(u.shareCopied);
-      }catch(err2){
-        showToast(u.toastFailed);
-      }
-    }
-    closeShareModal();
-  }
-
-  function shareViaEmail(){
-    const url = getShareUrl();
-    const subject = encodeURIComponent(UI[currentLang].brand);
-    const body = encodeURIComponent(url);
-    window.open("mailto:?subject=" + subject + "&body=" + body, "_blank");
-    closeShareModal();
-  }
-
-  function shareViaMessage(){
-    const url = getShareUrl();
-    window.open("sms:?body=" + encodeURIComponent(url), "_blank");
-    closeShareModal();
-  }
-
-  function shareViaWhatsapp(){
-    const url = getShareUrl();
-    window.open("https://wa.me/?text=" + encodeURIComponent(url), "_blank");
-    closeShareModal();
-  }
-
-  function applyUIStrings(lang){
-    const u = UI[lang];
-    document.querySelectorAll("[data-key-ui]").forEach(el => {
-      const key = el.getAttribute("data-key-ui");
-      if(u[key] !== undefined) el.textContent = u[key];
-    });
-    document.getElementById("searchInput").placeholder = u.searchPlaceholder;
-    document.getElementById("editToggle").title = u.editTooltip;
-    document.getElementById("shareIcon").title = u.shareTooltip;
-  }
-
-  function setLang(lang){
-    currentLang = lang;
-    document.body.setAttribute("data-lang", lang);
-    document.querySelectorAll(".lang-btn").forEach(b => b.classList.toggle("active", b.getAttribute("data-lang") === lang));
-    document.querySelectorAll(".lang-block").forEach(b => b.classList.toggle("active-lang", b.classList.contains("lang-" + lang)));
-    applyUIStrings(lang);
-    setHeaderForPage(currentPage);
-    if(currentPage === "search") runSearch();
-  }
-
-  const editableKeys = ["address","lockbox-location","lockbox-code","phone","wifi-ssid","wifi-pass","rules-extra","checkout-extra"];
-
-  async function loadFields(){
-    if(!window.storage) return;
-    for(const key of editableKeys){
-      try{
-        const res = await window.storage.get("guide:" + key, true);
-        if(res && res.value){
-          document.querySelectorAll('[data-key="' + key + '"]').forEach(el => el.textContent = res.value);
-        }
-      }catch(err){ /* inget sparat värde ännu */ }
-    }
-  }
-
-  function toggleEdit(){
-    const on = !document.body.classList.contains("edit-mode");
-    document.body.classList.toggle("edit-mode", on);
-    document.querySelectorAll(".fill").forEach(el => { el.contentEditable = on ? "true" : "false"; });
-  }
-
-  function showToast(msg){
-    let toast = document.getElementById("toast");
-    if(!toast){
-      toast = document.createElement("div");
-      toast.id = "toast";
-      toast.className = "toast";
-      document.body.appendChild(toast);
-    }
-    toast.textContent = msg;
-    toast.classList.add("show");
-    clearTimeout(toast._t);
-    toast._t = setTimeout(() => toast.classList.remove("show"), 1800);
-  }
-
-  document.addEventListener("blur", async function(e){
-    const t = e.target;
-    if(!t.classList || !t.classList.contains("fill")) return;
-    if(!document.body.classList.contains("edit-mode")) return;
-    const key = t.getAttribute("data-key");
-    const value = t.textContent.trim();
-    document.querySelectorAll('[data-key="' + key + '"]').forEach(el => el.textContent = value);
-    const u = UI[currentLang];
-    if(!window.storage){
-      showToast(u.toastNoStorage);
-      return;
-    }
-    try{
-      const result = await window.storage.set("guide:" + key, value, true);
-      showToast(result ? u.toastSaved : u.toastFailed);
-    }catch(err){
-      showToast(u.toastFailed);
-    }
-  }, true);
-
-  function runSearch(){
-    const q = document.getElementById("searchInput").value.trim().toLowerCase();
-    const results = document.getElementById("searchResults");
-    results.innerHTML = "";
-    if(!q) return;
-    const u = UI[currentLang];
-    const matches = searchIndex
-      .map(item => ({id:item.id, title:item[currentLang].t, snippet:item[currentLang].s}))
-      .filter(item => item.title.toLowerCase().includes(q) || item.snippet.toLowerCase().includes(q));
-    if(matches.length === 0){
-      results.innerHTML = '<div class="search-empty">' + u.searchEmpty + "</div>";
-      return;
-    }
-    matches.forEach(m => {
-      const btn = document.createElement("button");
-      btn.innerHTML = m.title + '<span class="snippet">' + m.snippet + "</span>";
-      btn.onclick = () => showPage(m.id);
-      results.appendChild(btn);
-    });
-  }
-
-  applyUIStrings(currentLang);
-  showPage("home-grid");
-  loadFields();
+  const UI={sv:{brand:"VÄSTKUST-VILLAN",editBanner:"Redigeringsläge på — klicka på ett gulmarkerat fält och skriv din text.",navHome:"HEM",navInfo:"INFO",navMap:"KARTA",navSearch:"SÖK",titleMap:"Karta",titleSearch:"Sök",searchPlaceholder:"Sök t.ex. wifi, pool, kod...",searchEmpty:"Inga resultat.",toastSaved:"Sparat ✓",toastFailed:"Kunde inte spara",shareTitle:"Dela via",shareCopyLink:"Kopiera länk",shareEmail:"E-post",shareMessage:"Meddelande",shareWhatsapp:"WhatsApp",shareCopied:"Länk kopierad ✓",tile_welcome:"Välkommen",tile_enhance:"Gör mer av vistelsen",tile_area:"Området & Aktiviteter",tile_before:"Innan du åker hemifrån",tile_arrival:"Ankomstinformation",tile_wifi:"WiFi / Internet",tile_weather:"Väder",tile_about:"Om boendet",tile_rules:"Säkerhet & Regler",tile_farewell:"På återseende!"},en:{brand:"WEST COAST VILLA",editBanner:"Edit mode on — click a highlighted field and type your text.",navHome:"HOME",navInfo:"INFO",navMap:"MAP",navSearch:"SEARCH",titleMap:"Map",titleSearch:"Search",searchPlaceholder:"Search e.g. wifi, pool, code...",searchEmpty:"No results.",toastSaved:"Saved ✓",toastFailed:"Could not save",shareTitle:"Share via",shareCopyLink:"Copy link",shareEmail:"Email",shareMessage:"Message",shareWhatsapp:"WhatsApp",shareCopied:"Link copied ✓",tile_welcome:"Welcome",tile_enhance:"Enhance your Stay",tile_area:"Local Area & Activities",tile_before:"Before You Leave Home",tile_arrival:"Arrival Information",tile_wifi:"WiFi / Internet",tile_weather:"Weather",tile_about:"About the Accommodation",tile_rules:"Safety & Rules",tile_farewell:"See You Soon!"},de:{brand:"WESTKÜSTEN-VILLA",editBanner:"Bearbeitungsmodus — klicke auf ein markiertes Feld.",navHome:"START",navInfo:"INFO",navMap:"KARTE",navSearch:"SUCHE",titleMap:"Karte",titleSearch:"Suche",searchPlaceholder:"Suche z. B. WLAN, Pool...",searchEmpty:"Keine Ergebnisse.",toastSaved:"Gespeichert ✓",toastFailed:"Fehler",shareTitle:"Teilen über",shareCopyLink:"Link kopieren",shareEmail:"E-Mail",shareMessage:"Nachricht",shareWhatsapp:"WhatsApp",shareCopied:"Link kopiert ✓",tile_welcome:"Willkommen",tile_enhance:"Mehr aus deinem Aufenthalt",tile_area:"Umgebung & Aktivitäten",tile_before:"Vor der Abreise",tile_arrival:"Ankunftsinformationen",tile_wifi:"WLAN / Internet",tile_weather:"Wetter",tile_about:"Über die Unterkunft",tile_rules:"Sicherheit & Regeln",tile_farewell:"Bis bald!"}};
+  const searchIndex=[{id:"welcome",sv:{t:"Välkommen",s:"Hälsning och översikt."},en:{t:"Welcome",s:"Greeting and overview."},de:{t:"Willkommen",s:"Begrüßung und Überblick."}},{id:"arrival",sv:{t:"Ankomst",s:"Incheckning, nyckelskåp, kod, adress."},en:{t:"Arrival",s:"Check-in, key box, code, address."},de:{t:"Ankunft",s:"Check-in, Schlüsselbox, Code, Adresse."}},{id:"wifi",sv:{t:"WiFi",s:"Nätverksnamn och lösenord."},en:{t:"WiFi",s:"Network name and password."},de:{t:"WLAN",s:"Netzwerkname und Passwort."}},{id:"about",sv:{t:"Om boendet",s:"Sovrum, kök, pool, terrass."},en:{t:"Accommodation",s:"Bedrooms, kitchen, pool, terrace."},de:{t:"Unterkunft",s:"Schlafzimmer, Küche, Pool, Terrasse."}},{id:"rules",sv:{t:"Regler",s:"Pool, kameror, max 7 gäster."},en:{t:"Rules",s:"Pool, cameras, max 7 guests."},de:{t:"Regeln",s:"Pool, Kameras, max. 7 Gäste."}},{id:"area",sv:{t:"Området",s:"Badplats, restauranger, Smögen."},en:{t:"Area",s:"Beach, restaurants, Smögen."},de:{t:"Umgebung",s:"Strand, Restaurants, Smögen."}},{id:"enhance",sv:{t:"Poolhuset",s:"Bastu, pentry, 1500 kr/natt."},en:{t:"Pool House",s:"Sauna, kitchenette, 1500 SEK/night."},de:{t:"Poolhaus",s:"Sauna, Küchenzeile, 1500 SEK/Nacht."}}];
+  let currentLang="sv",currentPage="home-grid";
+  function showPage(t){document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));document.querySelectorAll(".bottomnav button").forEach(b=>b.classList.remove("active"));currentPage=t;if(t==="home-grid"){document.getElementById("home").classList.add("active");document.getElementById("nav-home").classList.add("active");document.body.classList.remove("detail-open");}else if(t==="map"){document.getElementById("page-map").classList.add("active");document.getElementById("nav-map").classList.add("active");document.body.classList.add("detail-open");}else if(t==="search"){document.getElementById("page-search").classList.add("active");document.getElementById("nav-search").classList.add("active");document.body.classList.add("detail-open");document.getElementById("searchInput").focus();runSearch();}else{const el=document.getElementById("page-"+t);if(el){el.classList.add("active");document.getElementById("nav-info").classList.add("active");document.body.classList.add("detail-open");}}setHeaderForPage(t);}
+  function setHeaderForPage(t){const u=UI[currentLang];const titleEl=document.getElementById("pageTitle");const brandEl=document.getElementById("brandBlock");if(t==="home-grid"){titleEl.style.display="none";brandEl.style.display="flex";}else{brandEl.style.display="none";titleEl.style.display="inline-block";titleEl.textContent=t==="map"?u.titleMap:t==="search"?u.titleSearch:(u["tile_"+t]||"");}}
+  function goHome(){showPage("home-grid");}
+  function openShareModal(){document.body.classList.add("share-open");}
+  function closeShareModal(){document.body.classList.remove("share-open");}
+  async function shareCopyLink(){try{await navigator.clipboard.writeText(window.location.href);showToast(UI[currentLang].shareCopied);}catch(e){showToast(UI[currentLang].toastFailed);}closeShareModal();}
+  function shareViaEmail(){window.open("mailto:?subject="+encodeURIComponent(UI[currentLang].brand)+"&body="+encodeURIComponent(window.location.href),"_blank");closeShareModal();}
+  function shareViaMessage(){window.open("sms:?body="+encodeURIComponent(window.location.href),"_blank");closeShareModal();}
+  function shareViaWhatsapp(){window.open("https://wa.me/?text="+encodeURIComponent(window.location.href),"_blank");closeShareModal();}
+  function applyUIStrings(lang){const u=UI[lang];document.querySelectorAll("[data-key-ui]").forEach(el=>{const k=el.getAttribute("data-key-ui");if(u[k]!==undefined)el.textContent=u[k];});const si=document.getElementById("searchInput");if(si)si.placeholder=u.searchPlaceholder;}
+  function setLang(lang){currentLang=lang;document.body.setAttribute("data-lang",lang);document.querySelectorAll(".lang-btn").forEach(b=>b.classList.toggle("active",b.getAttribute("data-lang")===lang));document.querySelectorAll(".lang-block").forEach(b=>b.classList.toggle("active-lang",b.classList.contains("lang-"+lang)));applyUIStrings(lang);setHeaderForPage(currentPage);if(currentPage==="search")runSearch();}
+  function toggleEdit(){const on=!document.body.classList.contains("edit-mode");document.body.classList.toggle("edit-mode",on);document.querySelectorAll(".fill").forEach(el=>{el.contentEditable=on?"true":"false";});}
+  function showToast(msg){let t=document.getElementById("toast");if(!t){t=document.createElement("div");t.id="toast";t.className="toast";document.body.appendChild(t);}t.textContent=msg;t.classList.add("show");clearTimeout(t._t);t._t=setTimeout(()=>t.classList.remove("show"),1800);}
+  document.addEventListener("blur",function(e){const t=e.target;if(!t.classList||!t.classList.contains("fill"))return;if(!document.body.classList.contains("edit-mode"))return;const key=t.getAttribute("data-key");const value=t.textContent.trim();document.querySelectorAll('[data-key="'+key+'"]').forEach(el=>el.textContent=value);showToast(UI[currentLang].toastSaved);},true);
+  function runSearch(){const q=document.getElementById("searchInput").value.trim().toLowerCase();const results=document.getElementById("searchResults");results.innerHTML="";if(!q)return;const u=UI[currentLang];const matches=searchIndex.map(item=>({id:item.id,title:item[currentLang].t,snippet:item[currentLang].s})).filter(item=>item.title.toLowerCase().includes(q)||item.snippet.toLowerCase().includes(q));if(matches.length===0){results.innerHTML='<div class="search-empty">'+u.searchEmpty+"</div>";return;}matches.forEach(m=>{const btn=document.createElement("button");btn.innerHTML=m.title+'<span class="snippet">'+m.snippet+"</span>";btn.onclick=()=>showPage(m.id);results.appendChild(btn);});}
+  applyUIStrings(currentLang);showPage("home-grid");
 </script>
-
 </body>
 </html>
-
