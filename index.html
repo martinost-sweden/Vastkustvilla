@@ -827,7 +827,28 @@
 
 <script>
 const ADMIN_PASSWORD="Martin2024";
+const BIN_ID="6a6e42bdda38895dfead7d87";
+const API_KEY="$2a$10$rQGQbRb6vPON9unHeKSOze5.A1hQbykwuBtScQ/CKiEy6Jv0Jaipq";
 const DATA={"wifi-ssid":"Lanesund","wifi-pass":"Melvin15","address":"Åsholmsvägen 8, 451 98 Uddevalla","phone":"+46705123993","lockbox-sv":"Yale-låsen öppnar du enkelt med tagg.\n\nFör att komma in i huset behöver ni en gul tagg. Den hittar ni om ni går mellan huset och garaget. Bakom garaget på vänster sida (norr) är gästhuset. Bakom gästhuset (nord-östra hörnet) sitter ett hänglås nertill på stuprännan. Öppna locket och ställ in koden 4992. Sedan drar ni ner det lilla svarta reglaget och öppnar luckan. Gul tagg för huset och svart tagg för poolhuset.\n\nVälkomna!","lockbox-en":"The Yale locks open easily with a tag.\n\nTo enter the house you need a yellow tag. You will find it by walking between the house and the garage. Behind the garage on the left side (north) is the guest house. Behind the guest house (north-east corner) there is a padlock at the bottom of the drainpipe. Open the cover and enter the code 4992. Then pull down the small black lever and open the compartment. Yellow tag for the house and black tag for the pool house.\n\nWelcome!","lockbox-de":"Die Yale-Schlösser öffnen sich ganz einfach mit einem Chip.\n\nUm ins Haus zu kommen, benötigt ihr einen gelben Chip. Den findet ihr, wenn ihr zwischen Haus und Garage entlanggeht. Hinter der Garage auf der linken Seite (Norden) befindet sich das Gästehaus. Hinter dem Gästehaus (nordöstliche Ecke) hängt ein Vorhängeschloss unten am Fallrohr. Öffnet den Deckel und gebt den Code 4992 ein. Dann zieht ihr den kleinen schwarzen Schieber herunter und öffnet das Fach. Gelber Chip für das Haus, schwarzer Chip für das Poolhaus.\n\nWillkommen!"};
+
+async function loadFromDB(){
+  try{
+    const r=await fetch("https://api.jsonbin.io/v3/b/"+BIN_ID+"/latest",{headers:{"X-Master-Key":API_KEY}});
+    const j=await r.json();
+    if(j.record){Object.assign(DATA,j.record);renderDynamic();}
+  }catch(e){console.log("DB load failed, using defaults");}
+}
+
+async function saveToDB(){
+  try{
+    await fetch("https://api.jsonbin.io/v3/b/"+BIN_ID,{
+      method:"PUT",
+      headers:{"Content-Type":"application/json","X-Master-Key":API_KEY},
+      body:JSON.stringify(DATA)
+    });
+    return true;
+  }catch(e){return false;}
+}
 const UI={sv:{brand:"VÄSTKUST-VILLAN",navHome:"HEM",navInfo:"INFO",navMap:"KARTA",navSearch:"SÖK",titleMap:"Karta",titleSearch:"Sök",searchPlaceholder:"Sök t.ex. wifi, pool, kod...",searchEmpty:"Inga resultat.",shareCopied:"Länk kopierad ✓",tile_welcome:"Välkommen",tile_arrival:"Ankomst & Nycklar",tile_wifi:"WiFi, TV & Ljud",tile_about:"Om boendet",tile_pool:"Pool & Swimspa",tile_area:"Området & Aktiviteter",tile_enhance:"Hyr Poolhuset",tile_rules:"Säkerhet & Regler",tile_farewell:"Utcheckning"},en:{brand:"WEST COAST VILLA",navHome:"HOME",navInfo:"INFO",navMap:"MAP",navSearch:"SEARCH",titleMap:"Map",titleSearch:"Search",searchPlaceholder:"Search e.g. wifi, pool, code...",searchEmpty:"No results.",shareCopied:"Link copied ✓",tile_welcome:"Welcome",tile_arrival:"Arrival & Keys",tile_wifi:"WiFi, TV & Sound",tile_about:"About the Villa",tile_pool:"Pool & Swimspa",tile_area:"Local Area",tile_enhance:"Add Pool House",tile_rules:"Safety & Rules",tile_farewell:"Check-out"},de:{brand:"WESTKÜSTEN-VILLA",navHome:"START",navInfo:"INFO",navMap:"KARTE",navSearch:"SUCHE",titleMap:"Karte",titleSearch:"Suche",searchPlaceholder:"Suche z. B. WLAN, Pool...",searchEmpty:"Keine Ergebnisse.",shareCopied:"Link kopiert ✓",tile_welcome:"Willkommen",tile_arrival:"Ankunft & Schlüssel",tile_wifi:"WLAN, TV & Sound",tile_about:"Über die Villa",tile_pool:"Pool & Swimspa",tile_area:"Umgebung",tile_enhance:"Poolhaus buchen",tile_rules:"Sicherheit & Regeln",tile_farewell:"Check-out"}};
 const searchIndex=[{id:"welcome",sv:{t:"Välkommen",s:"Hälsning och översikt."},en:{t:"Welcome",s:"Greeting and overview."},de:{t:"Willkommen",s:"Begrüßung und Überblick."}},{id:"arrival",sv:{t:"Ankomst & Nycklar",s:"Adress, tagg, kod 4992, altannycklar."},en:{t:"Arrival & Keys",s:"Address, tag, code 4992, terrace keys."},de:{t:"Ankunft & Schlüssel",s:"Adresse, Chip, Code 4992, Terrassenschlüssel."}},{id:"wifi",sv:{t:"WiFi, TV & Ljud",s:"Nätverk: Lanesund. Lösenord: Melvin15. Apple TV, Sonos."},en:{t:"WiFi, TV & Sound",s:"Network: Lanesund. Password: Melvin15. Apple TV, Sonos."},de:{t:"WLAN, TV & Sound",s:"Netzwerk: Lanesund. Passwort: Melvin15. Apple TV, Sonos."}},{id:"pool",sv:{t:"Pool & Swimspa",s:"Poolrobot, skötsel, regler, swimspa 35–37°C."},en:{t:"Pool & Swimspa",s:"Pool robot, maintenance, rules, swimspa 35–37°C."},de:{t:"Pool & Swimspa",s:"Poolroboter, Pflege, Regeln, Swimspa 35–37°C."}},{id:"about",sv:{t:"Om boendet",s:"Sovrum, kök, pool, terrass, 7 gäster."},en:{t:"About the Villa",s:"Bedrooms, kitchen, pool, terrace, 7 guests."},de:{t:"Über die Villa",s:"Schlafzimmer, Küche, Pool, Terrasse, 7 Gäste."}},{id:"rules",sv:{t:"Regler & Säkerhet",s:"Pool utan grind, kameror, max 7 gäster."},en:{t:"Safety & Rules",s:"Pool without fence, cameras, max 7 guests."},de:{t:"Regeln & Sicherheit",s:"Pool ohne Zaun, Kameras, max. 7 Gäste."}},{id:"farewell",sv:{t:"Utcheckning",s:"Sopor, grill, sängkläder, tillvalstjänster."},en:{t:"Check-out",s:"Rubbish, grill, bedding, optional services."},de:{t:"Check-out",s:"Müll, Grill, Bettwäsche, Zusatzleistungen."}},{id:"enhance",sv:{t:"Poolhuset",s:"Bastu, pentry, 1500 kr/natt."},en:{t:"Pool House",s:"Sauna, kitchenette, 1500 SEK/night."},de:{t:"Poolhaus",s:"Sauna, Küchenzeile, 1500 SEK/Nacht."}}];
 let currentLang="sv",currentPage="home-grid";
@@ -845,7 +866,20 @@ function showToast(msg){let t=document.getElementById("toast");if(!t){t=document
 function openAdmin(){document.body.classList.add("admin-open");document.getElementById("adminPass").value="";document.getElementById("adminError").style.display="none";document.getElementById("adminFields").classList.remove("unlocked");setTimeout(()=>document.getElementById("adminPass").focus(),100);}
 function closeAdmin(){document.body.classList.remove("admin-open");}
 function unlockAdmin(){const pass=document.getElementById("adminPass").value;if(pass===ADMIN_PASSWORD){document.getElementById("adminError").style.display="none";document.getElementById("adminFields").classList.add("unlocked");document.getElementById("f-wifi-ssid").value=DATA["wifi-ssid"];document.getElementById("f-wifi-pass").value=DATA["wifi-pass"];document.getElementById("f-address").value=DATA["address"];document.getElementById("f-phone").value=DATA["phone"];document.getElementById("f-lockbox-sv").value=DATA["lockbox-sv"];document.getElementById("f-lockbox-en").value=DATA["lockbox-en"];document.getElementById("f-lockbox-de").value=DATA["lockbox-de"];}else{document.getElementById("adminError").style.display="block";}}
-function saveAdmin(){DATA["wifi-ssid"]=document.getElementById("f-wifi-ssid").value.trim();DATA["wifi-pass"]=document.getElementById("f-wifi-pass").value.trim();DATA["address"]=document.getElementById("f-address").value.trim();DATA["phone"]=document.getElementById("f-phone").value.trim();DATA["lockbox-sv"]=document.getElementById("f-lockbox-sv").value.trim();DATA["lockbox-en"]=document.getElementById("f-lockbox-en").value.trim();DATA["lockbox-de"]=document.getElementById("f-lockbox-de").value.trim();renderDynamic();closeAdmin();showToast("✓ Sparat i denna session");}
+async function saveAdmin(){
+  DATA["wifi-ssid"]=document.getElementById("f-wifi-ssid").value.trim();
+  DATA["wifi-pass"]=document.getElementById("f-wifi-pass").value.trim();
+  DATA["address"]=document.getElementById("f-address").value.trim();
+  DATA["phone"]=document.getElementById("f-phone").value.trim();
+  DATA["lockbox-sv"]=document.getElementById("f-lockbox-sv").value.trim();
+  DATA["lockbox-en"]=document.getElementById("f-lockbox-en").value.trim();
+  DATA["lockbox-de"]=document.getElementById("f-lockbox-de").value.trim();
+  renderDynamic();
+  closeAdmin();
+  showToast("💾 Sparar...");
+  const ok=await saveToDB();
+  showToast(ok?"✅ Sparat permanent!":"⚠️ Sparat lokalt (kontrollera internet)");
+}
 function runSearch(){const q=document.getElementById("searchInput").value.trim().toLowerCase();const results=document.getElementById("searchResults");results.innerHTML="";if(!q)return;const u=UI[currentLang];const matches=searchIndex.map(item=>({id:item.id,title:item[currentLang].t,snippet:item[currentLang].s})).filter(item=>item.title.toLowerCase().includes(q)||item.snippet.toLowerCase().includes(q));if(matches.length===0){results.innerHTML='<div class="search-empty">'+u.searchEmpty+"</div>";return;}matches.forEach(m=>{const btn=document.createElement("button");btn.innerHTML=m.title+'<span class="snippet">'+m.snippet+"</span>";btn.onclick=()=>showPage(m.id);results.appendChild(btn);});}
 applyUIStrings(currentLang);showPage("home-grid");renderDynamic();
 </script>
